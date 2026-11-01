@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мой сайт</title>
+<style>
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:none}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-38px)}to{opacity:1;transform:none}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-52px)}to{opacity:1;transform:none}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(52px)}to{opacity:1;transform:none}}
+@keyframes zoomIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes zoomOut{from{opacity:0;transform:scale(1.12)}to{opacity:1;transform:scale(1)}}
+@keyframes rotateIn{from{opacity:0;transform:rotate(-7deg) scale(.94)}to{opacity:1;transform:none}}
+@keyframes flipIn{from{opacity:0;transform:perspective(900px) rotateX(-38deg)}to{opacity:1;transform:none}}
+@keyframes blurIn{from{opacity:0;filter:blur(12px)}to{opacity:1;filter:blur(0)}}
+
+*,*::before,*::after{box-sizing:border-box;}
+
+body{
+  margin:0;
+  background:#ffffff;
+  color:#1a1d26;
+  font-family:system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+.page{
+  max-width:880px;
+  margin:0 auto;
+  padding:52px 24px;
+}
+
+/* ---------- анимации появления ---------- */
+.blk[data-anim]{opacity:0;}
+.blk.in{
+  animation-duration:var(--d,600ms);
+  animation-delay:var(--dl,0ms);
+  animation-timing-function:var(--e,ease);
+  animation-fill-mode:both;
+}
+.a-fadeIn.in{animation-name:fadeIn}
+.a-slideUp.in{animation-name:slideUp}
+.a-slideDown.in{animation-name:slideDown}
+.a-slideRight.in{animation-name:slideRight}
+.a-slideLeft.in{animation-name:slideLeft}
+.a-zoomIn.in{animation-name:zoomIn}
+.a-zoomOut.in{animation-name:zoomOut}
+.a-rotateIn.in{animation-name:rotateIn}
+.a-flipIn.in{animation-name:flipIn}
+.a-blurIn.in{animation-name:blurIn}
+
+/* ---------- типографика ---------- */
+.blk h1,.blk h2,.blk h3,.blk h4{
+  margin:0;line-height:1.18;font-weight:750;letter-spacing:-.02em;white-space:pre-wrap;
+}
+.blk p{margin:0;white-space:pre-wrap;}
+.blk img{max-width:100%;height:auto;}
+
+/* ---------- кнопка ---------- */
+.btn{
+  display:inline-block;text-decoration:none;font-weight:600;line-height:1.2;
+  transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease,
+             filter .28s ease,background .28s ease;
+  will-change:transform;
+}
+.btn.hv-scale:hover{transform:scale(1.06);}
+.btn.hv-lift:hover{transform:translateY(-5px);box-shadow:0 14px 28px -10px rgba(0,0,0,.4);}
+.btn.hv-glow:hover{box-shadow:0 0 0 5px rgba(108,140,255,.28);}
+.btn.hv-bright:hover{filter:brightness(1.18) saturate(1.1);}
+
+/* ---------- вкладки ---------- */
+.tab-nav{
+  display:flex;gap:6px;flex-wrap:wrap;
+  border-bottom:1px solid rgba(128,138,160,.28);
+  margin-bottom:18px;
+}
+.tab-btn{
+  appearance:none;-webkit-appearance:none;background:transparent;border:0;
+  border-bottom:2px solid transparent;
+  padding:11px 15px;font:inherit;font-size:15px;color:inherit;opacity:.62;
+  cursor:pointer;border-radius:9px 9px 0 0;
+  transition:opacity .25s ease,background .25s ease,color .25s ease,border-color .25s ease;
+}
+.tab-btn:hover{opacity:1;background:rgba(128,138,160,.11);}
+.tab-btn.active{
+  opacity:1;font-weight:650;color:var(--tab-accent,#6c8cff);
+  border-bottom-color:var(--tab-accent,#6c8cff);
+}
+.tab-panel{display:none;white-space:pre-wrap;line-height:1.7;}
+.tab-panel.active{display:block;animation:fadeIn .35s ease both;}
+
+</style>
+</head>
+<body>
+<div class="page"><div class="blk a-zoomIn" data-anim style="margin-top:0px;margin-bottom:20px;--d:2200ms;--dl:0ms;--e:cubic-bezier(.2,.8,.2,1);"><h2 style="font-size:100px;text-align:center">Sparky Kitty</h2></div>
+<div class="blk a-zoomIn" data-anim style="margin-top:0px;margin-bottom:20px;--d:650ms;--dl:0ms;--e:cubic-bezier(.2,.8,.2,1);"><p style="font-size:17px;line-height:1.75;text-align:center">Пиксельный 2D платформер, про маленького котенка которого ждут большие приключения.
+На данный момент игра находиться в разработке
+
+Если вы хотите принять участи в тестировании свяжитесь с Vaseless&#39;ом разработчиком игры в дискорде.
+</p></div>
+<div class="blk" style="margin-top:0px;margin-bottom:20px;"><div class="tabs" style="--tab-accent:#ffae00"><div class="tab-nav"><button type="button" class="tab-btn active">Что вас ждет?</button><button type="button" class="tab-btn">Как принять участие в теститровании?</button></div><div class="tab-panels"><div class="tab-panel active">В игре вас ждут головоломки, творчество, платформинг и много чего ещё.
+Головоломки будут основаны на электричестве, ваша цель будет поглощать электричество из приборов чтобы заряжать другие устройства для прохождения игры.
+
+Сюжет в игре будет не прямо линейный и будет зависеть от вас и не только, в игре будет присуствовать рандомный фактор который будет давать вам некоторое отличие от истории других игроков, чтобы у каждого был уникальный опыт прохождения</div><div class="tab-panel">Подайте заявку на тестирование</div></div></div></div>
+<div class="blk a-fadeIn" data-anim style="margin-top:0px;margin-bottom:20px;--d:650ms;--dl:0ms;--e:cubic-bezier(.2,.8,.2,1);"><div style="text-align:center"><a class="btn hv-scale" href="#" style="background:#f5ac2e;color:#ffffff;border-radius:10px;padding:13px 24px;font-size:16px;">Подать заявку на тестирование</a></div></div>
+<div class="blk a-fadeIn" data-anim style="margin-top:0px;margin-bottom:0px;--d:650ms;--dl:0ms;--e:cubic-bezier(.2,.8,.2,1);"><p style="font-size:14px;line-height:1.75;color:#282929;text-align:center">Его судьба в ваших лапках ❤️</p></div>
+<div class="blk a-slideUp" data-anim style="margin-top:0px;margin-bottom:20px;--d:650ms;--dl:0ms;--e:cubic-bezier(.2,.8,.2,1);"><img src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22450%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23e8ecf5%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22sans-serif%22%20font-size%3D%2230%22%20fill%3D%22%2398a2b8%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3E%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Демо" style="width:100%;border-radius:10px;display:block;"></div>
+<div class="blk a-fadeIn" data-anim style="margin-top:0px;margin-bottom:20px;--d:650ms;--dl:0ms;--e:cubic-bezier(.2,.8,.2,1);"><p style="font-size:11px;line-height:1.75;color:#424243;text-align:center">Это временный сайт, для того чтобы в дальнейшем вы смогли поиграть в демоверсию игры или же подать заявку на тестирование сейчас.</p></div>
+<div class="blk a-fadeIn" data-anim style="margin-top:0px;margin-bottom:20px;--d:650ms;--dl:0ms;--e:cubic-bezier(.2,.8,.2,1);"><div style="text-align:left"><a class="btn hv-lift" href="https://www.youtube.com/@CupKvas_SparkyKitty" style="background:#cd0404;color:#ffffff;border-radius:10px;padding:3px 5px;font-size:18px;">Ютуб</a></div></div></div>
+<script>
+(function runtime(root, ioRoot){
+  var els = root.querySelectorAll('[data-anim]');
+  var io = null;
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(e){ e.classList.add('in'); });
+  } else {
+    io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.1, root: ioRoot || null, rootMargin: '0px 0px -30px 0px' });
+    els.forEach(function(e){ io.observe(e); });
+  }
+  root.querySelectorAll('.tabs').forEach(function(t){
+    var btns = t.querySelectorAll('.tab-btn');
+    var panels = t.querySelectorAll('.tab-panel');
+    btns.forEach(function(b, i){
+      b.addEventListener('click', function(){
+        btns.forEach(function(x){ x.classList.remove('active'); });
+        panels.forEach(function(x){ x.classList.remove('active'); });
+        b.classList.add('active');
+        if(panels[i]) panels[i].classList.add('active');
+      });
+    });
+  });
+  return io;
+})(document, null);
+</script>
+</body>
+</html>
